@@ -1,0 +1,132 @@
+{
+  "app": "rfid-library",
+  "version": "1.0.0",
+  "components": [
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "license": "MIT",
+      "file": "annotated_doc-0.0.5-py3-none-any.whl"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "license": "MIT",
+      "file": "annotated_types-0.8.0-py3-none-any.whl"
+    },
+    {
+      "name": "anyio",
+      "version": "4.16.0",
+      "license": "MIT",
+      "file": "anyio-4.16.0-py3-none-any.whl"
+    },
+    {
+      "name": "click",
+      "version": "8.5.1",
+      "license": "BSD-3-Clause",
+      "file": "click-8.5.1-py3-none-any.whl"
+    },
+    {
+      "name": "defusedxml",
+      "version": "0.7.1",
+      "license": "PSFL",
+      "file": "defusedxml-0.7.1-py2.py3-none-any.whl"
+    },
+    {
+      "name": "et_xmlfile",
+      "version": "2.0.0",
+      "license": "MIT",
+      "file": "et_xmlfile-2.0.0-py3-none-any.whl"
+    },
+    {
+      "name": "fastapi",
+      "version": "0.162.2",
+      "license": "MIT",
+      "file": "fastapi-0.162.2-py3-none-any.whl"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "license": "MIT",
+      "file": "h11-0.16.0-py3-none-any.whl"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "license": "BSD-3-Clause",
+      "file": "idna-3.20-py3-none-any.whl"
+    },
+    {
+      "name": "openpyxl",
+      "version": "3.1.5",
+      "license": "MIT",
+      "file": "openpyxl-3.1.5-py2.py3-none-any.whl"
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.45.2",
+      "license": "Apache-2.0",
+      "file": "opentelemetry_api-1.45.2-py3-none-any.whl"
+    },
+    {
+      "name": "pillow",
+      "version": "13.0.0",
+      "license": "MIT-CMU",
+      "file": "pillow-13.0.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.3",
+      "license": "MIT",
+      "file": "pydantic-2.14.3-py3-none-any.whl"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.50.4",
+      "license": "MIT",
+      "file": "pydantic_core-2.50.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"
+    },
+    {
+      "name": "PyJWT",
+      "version": "2.15.1",
+      "license": "MIT",
+      "file": "pyjwt-2.15.1-py3-none-any.whl"
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.33",
+      "license": "Apache-2.0",
+      "file": "python_multipart-0.0.33-py3-none-any.whl"
+    },
+    {
+      "name": "SQLAlchemy",
+      "version": "2.1.8",
+      "license": "MIT",
+      "file": "sqlalchemy-2.1.8-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+    },
+    {
+      "name": "starlette",
+      "version": "1.10.0",
+      "license": "BSD-3-Clause",
+      "file": "starlette-1.10.0-py3-none-any.whl"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "license": "PSF-2.0",
+      "file": "typing_extensions-4.16.0-py3-none-any.whl"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "license": "MIT",
+      "file": "typing_inspection-0.4.5-py3-none-any.whl"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "license": "BSD-3-Clause",
+      "file": "uvicorn-0.54.0-py3-none-any.whl"
+    }
+  ]
+}

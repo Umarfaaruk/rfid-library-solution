@@ -1,0 +1,78 @@
+{
+  "steps": [
+    {
+      "step": "built three packages",
+      "ok": true,
+      "versions": [
+        "1.0.0",
+        "1.1.0",
+        "1.2.0"
+      ]
+    },
+    {
+      "step": "install 1.0.0 with network unreachable",
+      "ok": true,
+      "tail": [
+        "start with: python /tmp/rfid-lifecycle-up7lf4j1/site/run.py serve"
+      ]
+    },
+    {
+      "step": "health after install",
+      "ok": true,
+      "out": "{\"status\": \"ok\", \"app_version\": \"1.0.0\", \"schema_version\": 3, \"schema_expected\": 3}"
+    },
+    {
+      "step": "import 20,000 rows via installed launcher",
+      "ok": true,
+      "source_rows": 20000,
+      "loaded": 19307,
+      "rejected": 594,
+      "duplicates": 99,
+      "seconds": 1.1
+    },
+    {
+      "step": "API serves /health from the installed copy",
+      "ok": true,
+      "health": {
+        "status": "ok",
+        "app_version": "1.0.0",
+        "schema_version": 3,
+        "schema_expected": 3
+      }
+    },
+    {
+      "step": "authenticated catalogue search over HTTP",
+      "ok": true,
+      "first_title": "Advanced Physics Vol 5 Ed 0"
+    },
+    {
+      "step": "update to 1.1.0 succeeds",
+      "ok": true,
+      "pointer": "1.1.0",
+      "migrations": [
+        4
+      ],
+      "rc": 0,
+      "log": ""
+    },
+    {
+      "step": "broken 1.2.0 update rolls back",
+      "ok": true,
+      "detail": "RuntimeError: release 1.2.0 migration failed midway"
+    },
+    {
+      "step": "database identical after failed update",
+      "ok": true,
+      "tables_compared": 15
+    },
+    {
+      "step": "data preserved across the whole lifecycle",
+      "ok": true,
+      "items": 19307
+    },
+    {
+      "step": "tampered package rejected",
+      "ok": true
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+name: ci
+on:
+  push:
+    branches: [main, "feature/**"]
+  pull_request:
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned dependencies
+        run: pip install -r requirements.lock pytest pytest-cov httpx ruff pip-audit
+      - name: Lint and format
+        run: |
+          ruff check .
+          ruff format --check .
+      - name: Tests with coverage
+        run: pytest --cov=app --cov-report=term --cov-fail-under=85
+      - name: Dependency audit
+        run: pip-audit -r requirements.lock --no-deps --disable-pip
+      - name: Secret scan (simple)
+        run: |
+          if grep -RInE "(BEGIN (RSA|EC|OPENSSH) PRIVATE KEY|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{30,})" --exclude-dir=.git --exclude-dir=.venv .; then
+            echo "possible secret committed"; exit 1; fi
+      - name: Offline lifecycle (install, update, rollback)
+        run: python scripts/verify_offline_lifecycle.py

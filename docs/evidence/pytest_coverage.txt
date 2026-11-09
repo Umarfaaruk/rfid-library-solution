@@ -1,0 +1,144 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /home/claude/rfid-library
+configfile: pyproject.toml
+testpaths: tests
+plugins: platformdirs-4.13.5, anyio-4.15.1, cov-7.1.0
+collecting ... collected 97 items
+
+tests/test_ac01_migration.py::test_dry_run_writes_no_catalogue_rows PASSED [  1%]
+tests/test_ac01_migration.py::test_full_load_matches_ground_truth_and_reconciles PASSED [  2%]
+tests/test_ac01_migration.py::test_reports_are_written PASSED            [  3%]
+tests/test_ac01_migration.py::test_rollback_removes_only_this_batch PASSED [  4%]
+tests/test_ac01_migration.py::test_reimport_marks_everything_duplicate PASSED [  5%]
+tests/test_ac01_migration.py::test_barcode_conflict_is_rejected_not_loaded PASSED [  6%]
+tests/test_ac01_migration.py::test_xlsx_input_supported PASSED           [  7%]
+tests/test_ac01_migration.py::test_validation_rules PASSED               [  8%]
+tests/test_ac01_migration.py::test_rollback_refused_when_items_are_on_loan PASSED [  9%]
+tests/test_ac02_tagging.py::test_tag_writes_iso28560_style_payload_and_links_record PASSED [ 10%]
+tests/test_ac02_tagging.py::test_tag_recorded_in_audit_log PASSED        [ 11%]
+tests/test_ac02_tagging.py::test_cannot_tag_twice_without_replace PASSED [ 12%]
+tests/test_ac02_tagging.py::test_tag_uid_cannot_be_reused_on_another_item PASSED [ 13%]
+tests/test_ac02_tagging.py::test_replace_retires_old_tag_and_keeps_history PASSED [ 14%]
+tests/test_ac02_tagging.py::test_reader_must_see_exactly_one_tag PASSED  [ 15%]
+tests/test_ac02_tagging.py::test_device_fault_leaves_no_half_written_record PASSED [ 16%]
+tests/test_ac02_tagging.py::test_tag_via_api_requires_rfid_permission PASSED [ 17%]
+tests/test_ac03_protocols.py::test_ncip_checkout_checkin_renew_roundtrip PASSED [ 18%]
+tests/test_ac03_protocols.py::test_ncip_problem_types_for_rule_violations PASSED [ 19%]
+tests/test_ac03_protocols.py::test_ncip_lookup_user_and_item PASSED      [ 20%]
+tests/test_ac03_protocols.py::test_ncip_rejects_dtd_and_entities PASSED  [ 21%]
+tests/test_ac03_protocols.py::test_ncip_requires_integration_role PASSED [ 22%]
+tests/test_ac03_protocols.py::test_ncip_unsupported_service PASSED       [ 23%]
+tests/test_ac03_protocols.py::test_sip2_login_required_and_validated PASSED [ 24%]
+tests/test_ac03_protocols.py::test_sip2_status_message_lists_supported_messages PASSED [ 25%]
+tests/test_ac03_protocols.py::test_sip2_checkout_checkin_renew_item_info PASSED [ 26%]
+tests/test_ac03_protocols.py::test_sip2_refusals_carry_screen_message PASSED [ 27%]
+tests/test_ac03_protocols.py::test_sip2_patron_status_flags_blocks PASSED [ 28%]
+tests/test_ac03_protocols.py::test_sip2_unknown_message_asks_for_resend PASSED [ 29%]
+tests/test_ac03_protocols.py::test_sip2_over_tcp PASSED                  [ 30%]
+tests/test_ac03_protocols.py::test_same_rules_apply_over_both_protocols PASSED [ 31%]
+tests/test_ac04_rules.py::test_reference_item_cannot_be_borrowed PASSED  [ 32%]
+tests/test_ac04_rules.py::test_blocked_member_cannot_borrow_or_renew PASSED [ 34%]
+tests/test_ac04_rules.py::test_fine_limit_blocks_checkout_until_paid_down PASSED [ 35%]
+tests/test_ac04_rules.py::test_loan_limit PASSED                         [ 36%]
+tests/test_ac04_rules.py::test_item_cannot_be_borrowed_twice PASSED      [ 37%]
+tests/test_ac04_rules.py::test_overdue_checkin_charges_fine_and_notifies PASSED [ 38%]
+tests/test_ac04_rules.py::test_on_time_return_has_no_fine PASSED         [ 39%]
+tests/test_ac04_rules.py::test_renewals_extend_due_date_up_to_the_limit PASSED [ 40%]
+tests/test_ac04_rules.py::test_overdue_item_cannot_be_renewed PASSED     [ 41%]
+tests/test_ac04_rules.py::test_checkout_and_checkin_flip_security_state PASSED [ 42%]
+tests/test_ac04_rules.py::test_device_fault_blocks_checkout_fail_closed PASSED [ 43%]
+tests/test_ac04_rules.py::test_every_transaction_is_audited PASSED       [ 44%]
+tests/test_ac05_inventory.py::test_inventory_finds_missing_misplaced_unknown_and_loaned PASSED [ 45%]
+tests/test_ac05_inventory.py::test_closed_session_rejects_more_scans PASSED [ 46%]
+tests/test_ac05_inventory.py::test_inventory_over_api_with_permissions PASSED [ 47%]
+tests/test_ac06_gate.py::test_unsecured_item_alarm_records_image_and_queues_email PASSED [ 48%]
+tests/test_ac06_gate.py::test_checked_out_item_passes_without_alarm PASSED [ 49%]
+tests/test_ac06_gate.py::test_foreign_tags_never_alarm PASSED            [ 50%]
+tests/test_ac06_gate.py::test_duplicate_reads_in_window_raise_one_alarm PASSED [ 51%]
+tests/test_ac06_gate.py::test_same_event_id_is_processed_once PASSED     [ 52%]
+tests/test_ac06_gate.py::test_alarm_email_is_delivered_with_retry PASSED [ 53%]
+tests/test_ac06_gate.py::test_notification_fails_permanently_after_max_attempts PASSED [ 54%]
+tests/test_ac06_gate.py::test_member_notification_uses_chosen_channel PASSED [ 55%]
+tests/test_ac06_gate.py::test_bus_spools_when_handler_down_and_replays_in_order PASSED [ 56%]
+tests/test_ac06_gate.py::test_bus_replay_keeps_events_that_still_fail PASSED [ 57%]
+tests/test_ac06_gate.py::test_gate_registers_as_rfid_client PASSED       [ 58%]
+tests/test_ac06_gate.py::test_gate_simulation_endpoint PASSED            [ 59%]
+tests/test_ac07_roles.py::test_card_login_issues_token_with_role PASSED  [ 60%]
+tests/test_ac07_roles.py::test_unknown_card_rejected_and_audited_with_masked_uid PASSED [ 61%]
+tests/test_ac07_roles.py::test_wrong_password_rejected_without_hint PASSED [ 62%]
+tests/test_ac07_roles.py::test_permission_matrix PASSED                  [ 63%]
+tests/test_ac07_roles.py::test_missing_or_garbage_token_is_401 PASSED    [ 64%]
+tests/test_ac07_roles.py::test_tampered_and_expired_tokens_rejected PASSED [ 65%]
+tests/test_ac07_roles.py::test_role_comes_from_token_signed_by_server_only PASSED [ 67%]
+tests/test_ac07_roles.py::test_password_hashing_is_salted_and_verifiable PASSED [ 68%]
+tests/test_ac07_roles.py::test_deactivated_user_cannot_log_in PASSED     [ 69%]
+tests/test_ac07_roles.py::test_audit_trail_records_login_and_actions PASSED [ 70%]
+tests/test_ac08_reports.py::test_dashboard_numbers PASSED                [ 71%]
+tests/test_ac08_reports.py::test_location_filter_scopes_item_based_metrics PASSED [ 72%]
+tests/test_ac08_reports.py::test_date_filter_excludes_old_events PASSED  [ 73%]
+tests/test_ac08_reports.py::test_overdue_and_fines_are_reported PASSED   [ 74%]
+tests/test_ac08_reports.py::test_csv_export_matches_loans PASSED         [ 75%]
+tests/test_ac08_reports.py::test_reports_over_api PASSED                 [ 76%]
+tests/test_ac08_reports.py::test_empty_database_reports_zeroes PASSED    [ 77%]
+tests/test_ac09_update.py::test_good_update_migrates_and_switches_pointer PASSED [ 78%]
+tests/test_ac09_update.py::test_tampered_package_is_rejected_before_anything_changes PASSED [ 79%]
+tests/test_ac09_update.py::test_unexpected_extra_file_is_rejected PASSED [ 80%]
+tests/test_ac09_update.py::test_failed_health_check_restores_previous_state PASSED [ 81%]
+tests/test_ac09_update.py::test_failed_migration_with_partial_ddl_is_undone_by_restore PASSED [ 82%]
+tests/test_ac09_update.py::test_rollback_leaves_data_readable_and_app_startable PASSED [ 83%]
+tests/test_ac09_update.py::test_migrations_are_idempotent_and_ordered PASSED [ 84%]
+tests/test_ac09_update.py::test_search_index_is_maintained_by_triggers PASSED [ 85%]
+tests/test_ac10_backup_restore.py::test_restore_returns_database_to_exact_prior_state PASSED [ 86%]
+tests/test_ac10_backup_restore.py::test_backup_is_consistent_while_connections_are_open PASSED [ 87%]
+tests/test_ac10_backup_restore.py::test_fingerprint_changes_when_one_value_changes PASSED [ 88%]
+tests/test_ac10_backup_restore.py::test_real_import_takes_a_restore_point_first_but_dry_run_does_not PASSED [ 89%]
+tests/test_cli.py::test_version PASSED                                   [ 90%]
+tests/test_cli.py::test_health_before_and_after_init PASSED              [ 91%]
+tests/test_cli.py::test_seed_demo_is_repeatable PASSED                   [ 92%]
+tests/test_cli.py::test_import_dry_run_then_real_then_rollback PASSED    [ 93%]
+tests/test_cli.py::test_backup_and_restore_round_trip PASSED             [ 94%]
+tests/test_cli.py::test_unknown_command_is_rejected PASSED               [ 95%]
+tests/test_cli.py::test_sip2_command_listens_and_answers_login PASSED    [ 96%]
+tests/test_ui.py::test_console_and_assets_are_served PASSED              [ 97%]
+tests/test_ui.py::test_opac_search_is_public_and_read_only PASSED        [ 98%]
+tests/test_ui.py::test_opac_is_not_a_back_door_to_staff_endpoints PASSED [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.13.18-final-0 _______________
+
+Name                            Stmts   Miss  Cover
+---------------------------------------------------
+app/__init__.py                     1      0   100%
+app/adapters/__init__.py            0      0   100%
+app/adapters/ncip.py               84      2    98%
+app/adapters/sip2.py              111      9    92%
+app/api/__init__.py                 0      0   100%
+app/audit.py                       19      1    95%
+app/bootstrap.py                   20      1    95%
+app/cli.py                        105      9    91%
+app/config.py                      56      9    84%
+app/db.py                          23      0   100%
+app/errors.py                      17      0   100%
+app/main.py                       249     21    92%
+app/models.py                     151      0   100%
+app/ops/__init__.py                 0      0   100%
+app/ops/backup.py                  44      3    93%
+app/ops/schema.py                  38      0   100%
+app/ops/updater.py                 81      2    98%
+app/rfid/__init__.py                0      0   100%
+app/rfid/devices.py               109      3    97%
+app/rfid/events.py                 66      1    98%
+app/rfid/service.py               127      3    98%
+app/security.py                    51      0   100%
+app/seed.py                        18      0   100%
+app/services/__init__.py            0      0   100%
+app/services/catalog.py            42      5    88%
+app/services/circulation.py        96      7    93%
+app/services/migration.py         169      5    97%
+app/services/notifications.py      53      3    94%
+app/services/reports.py            45      2    96%
+---------------------------------------------------
+TOTAL                            1775     86    95%
+============================= 97 passed in 27.52s ==============================

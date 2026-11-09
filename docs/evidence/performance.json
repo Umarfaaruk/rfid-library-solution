@@ -1,0 +1,22 @@
+{
+  "rows": 20100,
+  "import_seconds": 1.02,
+  "loaded": 19400,
+  "import_rows_per_second": 19706,
+  "search_ms": {
+    "p50": 4.05,
+    "p95": 13.94,
+    "max": 14.64,
+    "samples": 200
+  },
+  "checkout_ms": {
+    "p50": 2.17,
+    "p95": 3.71,
+    "samples": 300
+  },
+  "checkin_ms": {
+    "p50": 1.81,
+    "p95": 3.18,
+    "samples": 300
+  }
+}
