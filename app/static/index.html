@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFID Library Console</title>
+<link rel="stylesheet" href="/ui/app.css">
+</head>
+<body>
+<header>
+  <h1>RFID Library</h1>
+  <nav id="nav">
+    <button data-tab="opac" class="on">Search (OPAC)</button>
+    <button data-tab="desk" class="staff">Circulation desk</button>
+    <button data-tab="rfid" class="staff">RFID tools</button>
+    <button data-tab="dash" class="staff">Dashboard</button>
+    <button data-tab="admin" class="staff">Admin</button>
+  </nav>
+  <div id="who"></div>
+</header>
+<main>
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <section id="opac" class="tab">
+    <h2>Find a book</h2>
+    <form id="opac-form"><input id="opac-q" placeholder="Title, author or ISBN" autofocus aria-label="Search the catalogue">
+      <button>Search</button></form>
+    <div id="opac-out"></div>
+  </section>
+
+  <section id="login" class="tab hidden">
+    <h2>Staff sign in</h2>
+    <form id="login-form" class="grid">
+      <label>Username <input id="u" autocomplete="username"></label>
+      <label>Password <input id="p" type="password" autocomplete="current-password"></label>
+      <button>Sign in</button>
+    </form>
+    <form id="card-form" class="grid">
+      <label>Smart card UID (mock reader) <input id="card" placeholder="CARD-LIB"></label>
+      <button>Tap card</button>
+    </form>
+    <p class="hint">Demo accounts are synthetic: admin, librarian, assistant, selfcheck. See the user guide.</p>
+  </section>
+
+  <section id="desk" class="tab hidden">
+    <h2>Circulation desk</h2>
+    <form id="desk-form" class="grid">
+      <label>Member (number or card) <input id="d-member" placeholder="M0001"></label>
+      <label>Item (accession, barcode or tag) <input id="d-item" placeholder="ACC001"></label>
+      <div class="row">
+        <button data-act="checkout">Check out</button>
+        <button data-act="renew" class="alt">Renew</button>
+        <button data-act="checkin" class="alt">Check in</button>
+        <button data-act="member" class="alt">Member status</button>
+        <button data-act="item" class="alt">Item status</button>
+      </div>
+    </form>
+    <pre id="desk-out" class="out"></pre>
+  </section>
+
+  <section id="rfid" class="tab hidden">
+    <h2>RFID tools (mock devices)</h2>
+    <h3>Tag an item</h3>
+    <form id="tag-form" class="grid">
+      <label>Item <input id="t-item" placeholder="ACC001"></label>
+      <label>Tag UID <input id="t-uid" placeholder="TAG-ACC001"></label>
+      <button>Validate and associate</button>
+    </form>
+    <h3>Handheld inventory</h3>
+    <form id="inv-form" class="grid">
+      <label>Shelf location <input id="i-loc" placeholder="MAIN-A1"></label>
+      <label>Tag UIDs read (comma separated) <input id="i-uids" placeholder="TAG-ACC001, TAG-ACC002"></label>
+      <button>Run inventory</button>
+    </form>
+    <h3>Security gate</h3>
+    <form id="gate-form" class="grid">
+      <label>Tag UIDs walking through <input id="g-uids" placeholder="TAG-ACC001"></label>
+      <button>Simulate walk-through</button>
+    </form>
+    <pre id="rfid-out" class="out"></pre>
+  </section>
+
+  <section id="dash" class="tab hidden">
+    <h2>Dashboard</h2>
+    <form id="dash-form" class="row"><label>Location <input id="f-loc" placeholder="all"></label>
+      <button>Refresh</button><button type="button" id="csv" class="alt">Download circulation CSV</button></form>
+    <div id="cards" class="cards"></div>
+  </section>
+
+  <section id="admin" class="tab hidden">
+    <h2>Administration</h2>
+    <div class="row"><button id="a-audit">Audit log</button><button id="a-backup" class="alt">Back up now</button>
+      <button id="a-notify" class="alt">Dispatch notifications</button><button id="a-health" class="alt">Health</button></div>
+    <pre id="admin-out" class="out"></pre>
+  </section>
+</main>
+<script src="/ui/app.js"></script>
+</body>
+</html>

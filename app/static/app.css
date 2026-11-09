@@ -1,0 +1,22 @@
+:root{--bg:#f6f7f9;--fg:#1c2330;--mut:#5b6678;--card:#fff;--line:#d9dee7;--acc:#1f4e79;--acc2:#e8eef5;--bad:#b3261e;--ok:#1e7a3c}
+@media (prefers-color-scheme:dark){:root{--bg:#10151c;--fg:#e6eaf0;--mut:#9aa6b8;--card:#18202b;--line:#2b3646;--acc:#6aa7e0;--acc2:#1f2b3b;--bad:#ff8a80;--ok:#7bd88f}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,Segoe UI,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:10px 16px;background:var(--card);border-bottom:1px solid var(--line)}
+h1{font-size:18px;margin:0 8px 0 0}h2{margin-top:0}h3{margin:20px 0 6px;font-size:15px}
+nav{display:flex;flex-wrap:wrap;gap:6px;flex:1}
+button{font:inherit;padding:7px 14px;border-radius:6px;border:1px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer}
+@media (prefers-color-scheme:dark){button{color:#0b1017}}
+button.alt,nav button{background:transparent;color:var(--acc)}nav button.on{background:var(--acc2);font-weight:600}
+input{font:inherit;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg);width:100%}
+main{max-width:980px;margin:0 auto;padding:16px}.hidden{display:none}
+.grid{display:grid;gap:10px;max-width:520px;margin-bottom:14px}label{display:grid;gap:3px;color:var(--mut);font-size:13px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:end}form#opac-form{display:flex;gap:8px}
+.out{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto;white-space:pre-wrap;min-height:48px}
+.cards{margin-top:14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px}.card b{display:block;font-size:24px}.card span{color:var(--mut);font-size:13px}
+.res{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:8px 0}.res small{color:var(--mut)}
+.pill{display:inline-block;padding:1px 8px;border-radius:10px;border:1px solid var(--line);font-size:12px;margin-right:4px}
+.pill.ok{color:var(--ok)}.pill.no{color:var(--bad)}.hint{color:var(--mut);font-size:13px}
+#toast{position:fixed;right:16px;bottom:16px;padding:10px 14px;border-radius:8px;background:var(--card);border:1px solid var(--line);display:none;max-width:360px}
+#toast.show{display:block}#toast.ok{border-color:var(--ok)}#toast.bad{border-color:var(--bad)}
+@media (max-width:600px){main{padding:12px}}
